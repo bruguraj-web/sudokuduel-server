@@ -116,6 +116,7 @@ io.on('connection', (socket) => {
       io.to(roomId).emit('match_found', {
         roomId,
         puzzle: puzzleData.puzzle,
+        solved: puzzleData.solved,
         difficulty,
         opponent: {
           [socket.id]: { username: opponent.username, points: opponent.points },
@@ -306,6 +307,7 @@ io.on('connection', (socket) => {
     io.to(roomId).emit('match_found', {
       roomId,
       puzzle: puzzleData.puzzle,
+      solved: puzzleData.solved,
       difficulty: challenge.difficulty,
       opponent: {
         [socket.id]: { username: challenge.username, points: challenge.points },
